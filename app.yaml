@@ -1,0 +1,26 @@
+mysql:
+  dns: "mysql://root:123@tcp(127.0.0.1:3307)/Im?charset=utf8mb4&parseTime=True&loc=Local"
+redis:
+  addr: "127.0.0.1:6379"
+  password: ""
+jwt:
+  sign_key: "x-token-IM" 
+  expire_time: 720                                # hour
+etcd:
+  endpoints: "localhost:2379"                     #etcd端口列表
+  timeout: 5                                      # 超时时间 s
+rabbitmq:
+  url: "amqp://guest:guest@localhost:5672/"
+log:
+  target: "file"                                  # 日志输出路径
+  level: "debug"                                  # 日志输出级别 debug、info、warn、error、dpanic、panic、fatal
+app: 
+  salt: "xtxtxtxtIM"    # 密码加盐  加盐的目的是使得即使两个用户使用了相同的密码，由于盐的不同，他们的哈希值也会不同，从而增加了破解密码的难度
+  ip: "127.0.0.1"
+  http_server_port: "9090"                        # http端口
+  websocket_server_port: "9091"                   # websocket端口
+  rpc-port: "9092"                                # rpc 端口
+  worker_pool_size: 10                            # worker队列数量
+  max_worker_task: 1024                           # worker队列中，每个worker的最大任务存储数量
+  heartbeattime: 600                              # 心跳超时时间 s ，10 * 60
+  heartbeatInterval: 60                           # 超时连接检测间隔 s
